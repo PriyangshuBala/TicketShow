@@ -1,0 +1,34 @@
+{% extends "adlayout.html" %}
+{% block body %}
+  <style>
+    h1{text-align: center;}
+    p{text-align: center;}
+    form{
+      text-align: center;
+    }
+    img{
+      text-align: center;
+    }
+    .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  </style>
+
+  <h1>~~:Delete Show:~~</h1>
+  <hr>
+  <h1>~~: {{ show[1] }} :~~</h1>
+  <img src={{ show[4] }} height="300" width="280" class="center">
+  <hr>
+  <form method="POST" action="{{ url_for('deletesh', show_name=show[1]) }}">
+    <p>Are you sure you want to delete this Movie?</p>
+    <button type="submit">Yes, delete it</button>
+  </form>
+  <hr>
+  <form>
+    <input type="button" value="No, go back" onclick="history.back()">
+  </form>
+  
+{% endblock %}

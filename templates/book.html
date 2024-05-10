@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    <style>
+        h1{text-align: center;}
+        h4{text-align: center;}
+        div{text-align: center;}
+    </style>
+    <h1>~~:Bookings:~~</h1>
+    <hr>
+    <form method="post" action="{{ url_for('booking',show_name=Show[1]) }}">
+        <br>
+        <div>
+        <h1>{{ Show[1] }}</h1>
+        <img src="{{ Show[4] }}" height="300" width="280">
+        <hr>
+        <h4>Hurry Up! Only {{ tcount }} tickets remaining!!!!!!</h4>
+    </div>
+    <hr>
+        <div>
+        <label for="movie_name"><b>Movie name:</b></label>
+        <input type="text" id="show_time" name="movie_name" value="{{ Show[1] }}">
+        
+        <br><br>
+        <label for="show_time"><b>Show time:</b></label>
+        <input type="text" id="show_time" name="show_time" required>
+        <br><br>
+        <label for="ticket_count"><b> Ticket count:</b></label>
+        <input type="number" id="ticket_count" name="ticket_count" required>
+        <br><br>
+        <label for="venue"><b>Venue:</b></label>
+        <select name="venue_name">
+            {% for venue in venues %}
+                <option value="{{ venue[1] }}">{{ venue[0] }}</option>
+            {% endfor %}
+        </select>
+    </div>
+        <br><br>
+        <div>
+            <input type="submit" value="Book">
+        </div>
+    </form>
+    <hr>
+    <div>
+    <form>
+        <input type="button" value="Go back!" onclick="history.back()">
+      </form>
+    </div>
+{% endblock %}
+
+

@@ -1,0 +1,62 @@
+{% extends "adlayout.html" %}
+{% block body %}
+<style>
+  h1{text-align: center;}
+  h2{text-align: center;}
+  h3{text-align: center;}
+  h6{text-align: center;}
+  form{text-align: center;}
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  .row{
+    padding: 10px;
+  }
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .column {
+      width: 20%;
+      padding: 5px;
+  }
+  img {
+    border: 5px solid #555;
+  }
+  a {
+    text-align: center;
+    display: block;
+  }
+</style>
+  <h1>~~:Edit Show:~~</h1>
+  <hr>
+  <a href="/booking/{{Show[1]}}"><img src={{ Show[4] }} height="300" width="280" class="center"></a>
+  <h1>{{Show[1]}}</h1>
+  <h1>{{left }}</h1>
+  <hr>
+  <h3>Show Rating: {{Show[3]}}</h3>
+  <h3>Show Price: {{Show[2]}}</h3>
+  <h3>Show Code: {{Show[0]}}</h3>
+  <hr>
+  <h1>~~:Edit Shows:~~</h1>
+  <hr>
+  <h2>Venues Screening {{ Show[1] }}</h2>
+  <hr>
+  <div class="row">
+    {% for row in rows %}
+    <div class="column">      
+        <a href="/edit_show/{{ row[0]}}"><img src={{ row[1] }} height="300" width="280"></a>
+        <h6>{{row[0]}}</h6>
+    </div>
+    {% endfor %}
+  </div>
+
+  <form>
+    <input type="button" value="Go back!" onclick="history.back()">
+  </form>
+
+{% endblock %}

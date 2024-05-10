@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block body %}
+<style>
+    h1{text-align: center;}
+    h3{text-align: center;}
+    .column {
+      width: 20%;
+      padding: 5px;
+    }
+    .row::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+    .row{
+      padding: 10px;
+    }
+    a {
+      text-align: center;
+      display: block;
+    }
+    img{
+        padding: 40px;
+    }
+</style>
+<div>
+    <h1>~~:Profile:~~</h1>
+    <hr>
+</div>
+<div>
+    <h3>&emsp;Id: &emsp; {{ account[0] }}</h3>
+    <h3>&emsp;PhoneNumber:&emsp; {{ account[5] }}</h3>
+    <hr>
+</div>
+    <h3>&emsp;Recent Bookings:</h3>
+    <hr>
+    <div class="row">
+        {% for i in bestBook.keys() %}
+            <div class="column">
+                <h3>{{i}}</h3>
+                <h3>{{ bestBook[i] }}</h3>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}

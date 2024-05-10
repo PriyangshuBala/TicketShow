@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block body %}
+
+
+
+<style>
+  h1 {text-align: center;}
+  h5 {text-align: center;}
+  .column {
+    width: 20%;
+    padding: 5px;
+  }
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .row{
+    padding: 10px;
+  }
+  div{text-align: center;}
+</style>
+
+<hr>
+<div>
+  <h1>~~:Trending Movies:~~</h1>
+</div>
+<hr>
+
+<div class = "row">  
+  {% for i in bestShows.keys() %}
+  <div class  = "column">
+    <a href="/booking/{{i}}"><img src={{ bestShows[i] }} height="300" width="280"></a>
+    <h6>{{i}}</h6>
+  </div>
+  {% endfor %}
+</div>
+
+<hr>
+<h1>~~:Check out some Venues:~~</h1>
+<hr>
+<div class = "row">  
+  {% for i in bestVenue.keys() %}
+  <div class  = "column">
+    <a href="/usvenue/{{i}}"><img src={{ bestVenue[i] }} height="300" width="280"></a>
+    <h6>{{i}}</h6>
+  </div>
+  {% endfor %}
+</div>
+<hr>
+<h5>~~: End of the Page :~~ </h5>
+
+
+
+{% endblock %}

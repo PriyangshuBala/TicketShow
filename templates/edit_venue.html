@@ -1,0 +1,79 @@
+{% extends "adlayout.html" %}
+{% block body %}
+<style>
+  h1{text-align: center;}
+  h2{text-align: center;}
+  h6{text-align: center;}
+  form{text-align: center;}
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    box-shadow: 30px;
+  }
+  .row{
+    padding: 10px;
+  }
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .column {
+      width: 20%;
+      padding: 5px;
+  }
+  img {
+    border: 5px solid #555;
+  }
+  a {
+    text-align: center;
+    display: block;
+  }
+</style>
+  <h1>~~:Edit Venue:~~</h1>
+  <hr>
+  <h1>{{venue[2]}}</h1>
+  <img src={{ venue[5] }} height="300" width="280" class="center">
+  <hr>
+  <form method="POST" action="{{ url_for('edit_venue', venue_name= venue[2]) }}">
+    <label for="name"><b> Name:</b></label>
+    <input type="text" id="name" name="venue_name" value="{{ venue[2] }}">
+    <br>
+    <label for="address"><b>Address</b></label>
+    <input type="text" id="address" name="venue_address" value="{{ venue[3] }}">
+    <br>
+    <label for="opentime"><b>Timing:</b></label>
+    <input type="text" id="time" name="venue_opentime" value="{{ venue[4] }}">
+    <br>
+    <label for="url"><b>Image:</b></label>
+    <input type="text" id="image" name="venue_img" value="{{ venue[5] }}">
+    <br>
+    <label for="code"><b>Venue Code:</b></label>
+    <input type="text" id="code" name="venue_code" value="{{ venue[1] }}">
+    <br>
+    <hr>
+    <button><a href="/deleteve/{{ venue[2] }}">Delete</a></button>
+    <button type="submit">Save Changes</button>
+  </form>
+  <hr>
+  <h1>~~:Edit Shows:~~</h1>
+  <hr>
+  <h2>Shows at {{ venue[2] }}</h2>
+  <hr>
+  <div class="row">
+    {% for row in rows %}
+    <div class="column">      
+        <a href="/edit_show/{{ row[0]}}"><img src={{ row[2] }} height="300" width="280"></a>
+        <h6>{{row[0]}}</h6>
+        <h6>Tickets left : {{ row[1] }}</h6>
+    </div>
+    {% endfor %}
+  </div>
+  
+  <form>
+    <input type="button" value="Go back!" onclick="history.back()">
+  </form>
+
+{% endblock %}

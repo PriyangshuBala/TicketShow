@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+{% block body %}
+<style>
+  h1{text-align: center;}
+  h2{text-align: center;}
+  h3{text-align: center;}
+  h6{text-align: center;}
+  form{text-align: center;}
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    box-shadow: 30px;
+  }
+  .row{
+    padding: 10px;
+  }
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .column {
+      width: 20%;
+      padding: 5px;
+  }
+  img {
+    border: 5px solid #555;
+  }
+  a {
+    text-align: center;
+    display: block;
+  }
+</style>
+  <h1>~~:View Venue:~~</h1>
+  <hr>
+  <img src={{ Venue[5] }} height="300" width="280" class="center">
+  <h1>{{Venue[2]}}</h1>
+  <hr>
+  <h3>Address: {{Venue[3]}}</h3>
+  <h3>Open Time: {{Venue[4]}}</h3>
+  <h3>Capacity: {{Venue[6]}}</h3>
+  <hr>
+  <h1>~~:Available Shows:~~</h1>
+  <hr>
+  <h2>Shows at {{ Venue[2] }}</h2>
+  <hr>
+  <div class="row">
+    {% for row in rows %}
+    <div class="column">      
+        <a href="/venshow/{{ row[0]}}"><img src={{ row[2] }} height="300" width="280"></a>
+        <h6>{{row[0]}}</h6>
+        <h6>Tickets left : {{ row[1] }}</h6>
+    </div>
+    {% endfor %}
+  </div>
+
+  
+  <form>
+    <input type="button" value="Go back!" onclick="history.back()">
+  </form>
+
+{% endblock %}

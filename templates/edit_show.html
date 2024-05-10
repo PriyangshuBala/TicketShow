@@ -1,0 +1,78 @@
+{% extends "adlayout.html" %}
+{% block body %}
+<style>
+  h1{text-align: center;}
+  h2{text-align: center;}
+  h6{text-align: center;}
+  form{text-align: center;}
+  .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+  }
+  .row{
+    padding: 10px;
+  }
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  .column {
+      width: 20%;
+      padding: 5px;
+  }
+  img {
+    border: 5px solid #555;
+  }
+  a {
+    text-align: center;
+    display: block;
+  }
+</style>
+  <h1>~~:Edit Show:~~</h1>
+  <hr>
+  <h1>{{show[1]}}</h1>
+  <img src={{ show[4] }} height="300" width="280" class="center">
+  <hr>
+  <form method="POST" action="{{ url_for('edit_show', show_name=show[1]) }}">
+    <label for="name"><b> Name:</b></label>
+    <input type="text" id="name" name="show_name" value="{{ show[1] }}">
+    <br>
+    <label for="address"><b>Price:</b></label>
+    <input type="text" id="price" name="show_price" value="{{ show[2] }}">
+    <br>
+    <label for="opentime"><b>Rating:</b></label>
+    <input type="text" id="rating" name="show_rating" value="{{ show[3] }}">
+    <br>
+    <label for="url"><b>Image:</b></label>
+    <input type="text" id="image" name="show_url" value="{{ show[4] }}">
+    <br>
+    <label for="code"><b>Show Code:</b></label>
+    <input type="text" id="code" name="show_code" value="{{ show[0] }}">
+    <br>
+    <hr>
+    <button><a href="/deletesh/{{show[1]}}">Delete</a></button>
+    <button type="submit">Save Changes</button>
+  </form>
+  <hr>
+  <h1>~~:Edit Shows:~~</h1>
+  <hr>
+  <h2>Venues Screening {{ show[1] }}</h2>
+  <hr>
+  <div class="row">
+    {% for row in rows %}
+    <div class="column">      
+        <a href="/edit_show/{{ row[0]}}"><img src={{ row[1] }} height="300" width="280"></a>
+        <h6>{{row[0]}}</h6>
+        
+    </div>
+    {% endfor %}
+  </div>
+
+  <form>
+    <input type="button" value="Go back!" onclick="history.back()">
+  </form>
+
+{% endblock %}

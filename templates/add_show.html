@@ -1,0 +1,51 @@
+{% extends "adlayout.html" %}
+{% block body %}
+
+<style>
+    h1{text-align: center;}
+    div{text-align: center;}
+</style>
+
+
+  <h1>~~:Add Shows:~~</h1>
+  <hr>
+  <div>
+  <form method="POST" action="{{ url_for('add_show') }}">
+    <label for="title"><b>Name of the Show:</b></label>
+    <input type="text" id="name" name="show_name">
+    <br>
+    <br>
+    <label for="price"><b>Price of Tickets:</b></label>
+    <input type="text" id="price" name="show_price">
+    <br>
+    <br>
+    <label for="code"><b>Movie Code:</b></label>
+    <input type="text" id="code" name="show_code">
+    <br>
+    <br>
+    <label for="rating"><b>Show Rating:</b></label>
+    <input type="text" id="rating" name="show_rating">
+    <br>
+    <br>
+    <label for="venue"><b>Venue:</b></label>
+    <select name="venue_id">
+      {% for venue in venues %}
+        <option value="{{ venue[1] }}">{{ venue[0] }}</option>
+      {% endfor %}
+    </select>
+    <br>
+    <br>
+    <label for="img"><b>Image URL:</b></label>
+    <input type="text" id="url" name="show_url">
+    <br>
+    <br>
+    <button type="submit">Add Movie</button>
+  </form>
+  <hr>
+  <form>
+    <input type="button" value="Go back!" onclick="history.back()">
+  </form>
+</div>
+
+{% endblock %}
+

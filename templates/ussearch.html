@@ -1,0 +1,46 @@
+{% extends "layout.html" %}
+{% block body %}
+<style>
+    h1{text-align: center;}
+    h2{text-align: center;}
+    div{text-align: center;}
+    .row{
+      padding: 10px;
+    }
+    .column {
+      width: 20%;
+      padding: 5px;
+    }
+</style>
+  <h1>~~:Search Shows and Venues:~~</h1>
+  <hr>
+  <div>
+		<form action="/ussearch" method="GET">
+			<label for="query">Search:</label>
+			<input type="text" name="query" id="query">
+			<button type="submit">Search</button>
+    </form>
+	</div>
+  <hr>
+  <h2>~~:Results:~~</h2>
+  <div class="row">
+			{% for result in results %}
+				{% if result[0] == 'venue' %}
+          <div class = "column">
+            <a href="/usvenue/{{ result[1]}}"><img src={{ result[3] }} height="300" width="280"></a>
+            <h6>{{result[1]}}</h6>
+          </div>
+        {% endif %}
+      {% endfor %}
+      {% for result in results %}
+				{% if result[0] == 'show' %}
+          <div class = "column">  
+            <a href="/venshow/{{ result[1]}}"><img src={{ result[4] }} height="300" width="280"></a>
+            <h6>{{result[1]}}</h6>
+          </div>
+				{% endif %}
+      {% endfor %}
+			
+  </div>
+  
+{% endblock %}

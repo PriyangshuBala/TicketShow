@@ -1,0 +1,35 @@
+{% extends "adlayout.html" %}
+{% block body %}
+  <style>
+    h1{text-align: center;}
+    p{text-align: center;}
+    form{
+      text-align: center;
+    }
+    img{
+      text-align: center;
+    }
+    .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    box-shadow: 30px;
+  }
+  </style>
+
+  <h1>~~:Delete Venue:~~</h1>
+  <hr>
+  <h1>~~: {{ Venue[2] }} :~~</h1>
+  <img src={{ Venue[5] }} height="300" width="280" class="center">
+  <hr>
+  <form method="POST" action="{{ url_for('deleteve', venue_name=Venue[2]) }}">
+    <p>Are you sure you want to delete this venue?</p>
+    <button type="submit">Yes, delete it</button>
+  </form>
+  <hr>
+  <form>
+    <input type="button" value="No, go back" onclick="history.back()">
+  </form>
+  
+{% endblock %}

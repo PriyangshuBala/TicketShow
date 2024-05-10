@@ -1,0 +1,39 @@
+{% extends "adlayout.html" %}
+{% block body %}
+
+<style>
+    h1{text-align: center;}
+    div{text-align: center;}
+</style>
+
+
+  <h1>~~:Add Venue:~~</h1>
+  <hr>
+  <div>
+  <form method="POST" action="{{ url_for('add_venue') }}">
+    <label for="name"><b> Name:</b></label>
+    <input type="text" id="name" name="venue_name">
+    <br>
+    <label for="address"><b>Address</b></label>
+    <input type="text" id="address" name="venue_address">
+    <br>
+    <label for="opentime"><b>Timing:</b></label>
+    <input type="text" id="time" name="venue_opentime">
+    <br>
+    <label for="url"><b>Image:</b></label>
+    <input type="text" id="image" name="venue_img">
+    <br>
+    <label for="code"><b>Venue Code:</b></label>
+    <input type="text" id="code" name="venue_code">
+    <br>
+    <button type="submit">Add Venue</button>
+  </form>
+  <hr>
+  <form>
+    <input type="button" value="Go back!" onclick="history.back()">
+  </form>
+
+</div>
+
+{% endblock %}
+
