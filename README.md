@@ -1,9 +1,4 @@
-Name:
-Priyangshu Bala
-21f3001205
-21f3001205@ds.study.iitm.ac.in
-My Name is Priyangshu Bala. I am currently pursuing BS in Data Science from IIT Madras. 
-Description
+My Name is Priyangshu Bala. I am currently pursuing BS in Data Science from IIT Madras. I made a web app named TicketShow. 
 TicketShow is an app which is used for buying movie tickets similar to bookmyshow app
 Technologies used
 Python
