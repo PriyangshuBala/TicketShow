@@ -1,4 +1,4 @@
-My Name is Priyangshu Bala. I am currently pursuing BS in Data Science from IIT Madras. I made a web app named TicketShow. 
+My Name is <b>Priyangshu Bala</b>.I made a web app named <b>TicketShow.</b> 
 TicketShow is an app which is used for buying movie tickets similar to bookmyshow app
 <br>
 Technologies used are <b>Python, Flask, Html, CSS and Sqlite3 for database</br>
